@@ -9,8 +9,8 @@ import java.util.Set;
 
 
 public class InfoServices {
-    static int numSummary = 1; //fatih log kaydı alırken işlem sırasını 1001'den başlatmak için kullanıldı.
-    public static Map<Integer, InfoVariables> processSummary = new HashMap<>();//fatih log kayıtlarının tutulduğu map
+    static int numSummary = 1; //fatih --> log kaydı alırken işlem sırasını 1001'den başlatmak için kullanıldı.
+    public static Map<Integer, InfoVariables> processSummary = new HashMap<>();//fatih -->log kayıtlarının tutulduğu map
 
     static Map<Integer, ExtractOfAccount> extAcc = new HashMap<>(); // Yasin --> Hesap Ekstresi Map
     static int num = 1;
@@ -59,7 +59,7 @@ public class InfoServices {
         // End --> Hesap Ekstresi Print Başlık Kısmı <-- // by Yasin
 
 
-        System.out.println("\nCOSMOS BANK \nTRANSECTION SUMMARY______________________"); // bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
+        System.out.println("\nCOSMOS BANK \nTRANSECTION SUMMARY______________________"); // fatih--> bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
         System.out.printf("%40s", date3);
         System.out.println();
         System.out.printf("\n%-7s %-35s %-14s", islem,  tarih,  process);
@@ -82,7 +82,7 @@ public class InfoServices {
     }
     // End --> Hesap Ekstresi Print içerik kısmı <-- // by Yasin
 
-    public static void transactionSummary(String processName, String customerId) {// log alma işlemi yapan method, yapılan işlemin açıklaması ve müşteri id girilecek.
+    public static void transactionSummary(String processName, String customerId) {//fatih--> log alma işlemi yapan method, yapılan işlemin açıklaması ve müşteri id girilecek.
         InfoVariables summary = new InfoVariables();
         summary.setDate();
         summary.setTime();
@@ -94,7 +94,7 @@ public class InfoServices {
 
     }
 
-    public static void transactionSummaryPrint(Map<Integer, InfoVariables> processSummary) {// log kayıtlarını yazdırma methodu
+    public static void transactionSummaryPrint(Map<Integer, InfoVariables> processSummary) {//fatih--> log kayıtlarını yazdırma methodu
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMM yyyy");
         DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("k:mm:ss");
         Set<Map.Entry<Integer, InfoVariables>> sumary = processSummary.entrySet();
