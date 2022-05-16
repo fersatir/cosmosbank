@@ -101,7 +101,7 @@ public class Menus extends OperationsTRY {   //Ana menu
                 }
             }
         } else {
-                transactionSummary("Login Success","1001");
+            transactionSummary("Login Success","1001");
             System.out.println("Welcome to Cosmos Bank Mr/Mrs " + customersMap.get(loginId).getName() + "! redirecting to the main menu...");
             TryCatch.threadSleep(1000);
             mainMenu();
