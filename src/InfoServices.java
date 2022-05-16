@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import static src.Menus.customersMap;
+import static src.Menus.loginId;
+
 
 public class InfoServices {
     static int numSummary = 1; //fatih --> log kaydı alırken işlem sırasını 1001'den başlatmak için kullanıldı.
@@ -54,12 +57,15 @@ public class InfoServices {
         System.out.println("\n----------------------------------------");
 
         extList(extAcc);
-        System.out.println("\n\n\n\n\n----------------------------------------");
+        System.out.println("\n\n----------------------------------------");
         System.out.println("HAVE A GOOD DAY - WE WISH YOU AGAIN");
         // End --> Hesap Ekstresi Print Başlık Kısmı <-- // by Yasin
 
 
-        System.out.println("\nCOSMOS BANK \nTRANSECTION SUMMARY______________________"); // fatih--> bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
+
+
+        System.out.println("=====================================================================");
+        System.out.println(customersMap.get(loginId).getName().toUpperCase()+" "+customersMap.get(loginId).getSurname().toUpperCase()+"\nLOG SUMMARY_______________________________"); // fatih--> bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
         System.out.printf("%40s", date3);
         System.out.println();
         System.out.printf("\n%-7s %-35s %-14s", islem,  tarih,  process);
