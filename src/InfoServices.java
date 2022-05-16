@@ -11,7 +11,7 @@ import java.util.Set;
 public class InfoServices {
 
 
-    static Map<Integer, ExtractOfAccount> extAcc = new HashMap<>();
+    static Map<Integer, ExtractOfAccount> extAcc = new HashMap<>(); // Yasin --> Hesap Ekstre
     static int num = 1;
 
     public static void extractAccount(String action, double amount, String id) {
