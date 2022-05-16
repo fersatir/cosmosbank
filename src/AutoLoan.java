@@ -38,6 +38,5 @@ public class AutoLoan implements Credits {
                     kredi();
             }
         }
-
     }
 }
