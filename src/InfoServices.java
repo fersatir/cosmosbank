@@ -9,7 +9,7 @@ import java.util.Set;
 
 
 public class InfoServices {
-    static int numSummary = 1001; //fatih log kaydı alırken işlem sırasını 1001'den başlatmak için kullanıldı.
+    static int numSummary = 1; //fatih log kaydı alırken işlem sırasını 1001'den başlatmak için kullanıldı.
     public static Map<Integer, InfoVariables> processSummary = new HashMap<>();//fatih log kayıtlarının tutulduğu map
 
     static Map<Integer, ExtractOfAccount> extAcc = new HashMap<>();
@@ -30,7 +30,7 @@ public class InfoServices {
     }
 
     public static void exit() {
-
+    transactionSummary("Exit Success","1001");
         String date = "Time";
         String action = "Action";
         String amount = "Amount";
