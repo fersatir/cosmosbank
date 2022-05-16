@@ -33,7 +33,7 @@ public class CustomerServices {
 
 
 
-    public static void defaultCustomer() { // default customer oluşturmak için oluşturuldu silinecek
+    public static void defaultCustomer() { //fatih default customer oluşturmak için oluşturuldu silinecek
         Customers customer1 = new Customers("fatih", "erşatır", "1001", "Fe123456", 20000, 0, "n", "12345", 10000);
         Customers customer2 = new Customers("yavuz", "erşatır", "1002", "Fe123456", 20000, 0, "n", "12345", 10000);
         Customers customer3 = new Customers("meltem", "erşatır", "1003", "Fe123456", 20000, 0, "n", "12345", 10000);
