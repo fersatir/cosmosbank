@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 
 import static src.CustomerServices.*;
+import static src.InfoServices.exit;
 
 
 public class Menus extends OperationsTRY {   //Ana menu
@@ -16,7 +17,7 @@ public class Menus extends OperationsTRY {   //Ana menu
     public static final String B = "\u001B[34m";
     static Scanner scanner = new Scanner(System.in);
 
-    static String loginId;
+    static String loginId;//fatih login olan müşterinin id nurasını heryerden ulaşabilmek için oluşturuldu.
     static OperationsUSD opusd = new OperationsUSD();
     static Customers currentCustomer; // hangi müşteri işlem yapıyor onu takip etmek için variable
 

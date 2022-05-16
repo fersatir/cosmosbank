@@ -3,17 +3,17 @@ package src;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class SummaryVeriables {
+public class InfoVariables {
 
     String customerId;
     LocalDate date;
     LocalTime time;
     String processName;
 
-    public SummaryVeriables() {
+    public InfoVariables() {
     }
 
-    public SummaryVeriables(String customerId, LocalDate date, LocalTime time, String processName) {
+    public InfoVariables(String customerId, LocalDate date, LocalTime time, String processName) {
         this.customerId = customerId;
         this.date = date;
         this.time = time;
