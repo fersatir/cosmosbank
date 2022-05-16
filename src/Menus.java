@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import static src.CustomerServices.*;
 import static src.InfoServices.exit;
+import static src.InfoServices.transactionSummary;
 
 
 public class Menus extends OperationsTRY {   //Ana menu
@@ -67,6 +68,7 @@ public class Menus extends OperationsTRY {   //Ana menu
 
         customersMap.put(customer1.getIdNumber(), customer1);
         System.out.println("New customer has been registered to our system. You are being redirected to the main menu...");
+        transactionSummary("Customer Registered","1001");
         TryCatch.threadSleep(1000);
         System.out.println(customersMap);
         mainMenu();
@@ -99,6 +101,7 @@ public class Menus extends OperationsTRY {   //Ana menu
                 }
             }
         } else {
+                transactionSummary("Login Success","1001");
             System.out.println("Welcome to Cosmos Bank Mr/Mrs " + customersMap.get(loginId).getName() + "! redirecting to the main menu...");
             TryCatch.threadSleep(1000);
             mainMenu();
