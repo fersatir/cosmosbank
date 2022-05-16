@@ -52,6 +52,7 @@ public class OperationsUSD implements Operations {
             customersMap.get(loginId).setBalaceTRY(customersMap.get(loginId).getBalaceTRY() - quantityTry);//usd alabilmek için yeterli olan try hesabına yeni bakiye set ediliyor.
             customersMap.get(loginId).setBalanceUSD(enterUsd);// usd hesabına para eklendi.
             System.out.println("Tebrikler "+quantityTry+" TL ile, "+ enterUsd+ " $ aldınız.");
+
             extractAccount("Buy USD",enterUsd,"1001");
         }else {
             System.out.print(enterUsd + " $ almak için gerekli TL miktarı: " + quantityTry);
