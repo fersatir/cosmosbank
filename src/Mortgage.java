@@ -1,6 +1,7 @@
 package src;
 
-import static Projects.P14_BankaProjesi.Menus.currentCustomer;
+
+import static src.Menus.currentCustomer;
 
 public class Mortgage implements Credits {
 

@@ -1,7 +1,8 @@
 package src;
 
-import static Projects.P14_BankaProjesi.CustomerServices.transactionSummary;
-import static Projects.P14_BankaProjesi.Menus.*;
+
+import static src.CustomerServices.transactionSummary;
+import static src.Menus.*;
 
 public class OperationsUSD implements Operations {
     @Override

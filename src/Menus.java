@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import static Projects.P14_BankaProjesi.CustomerServices.*;
-import static Projects.P14_BankaProjesi.OperationsUSD.*;
+
+import static src.CustomerServices.*;
 
 
 public class Menus extends OperationsTRY {   //Ana menu

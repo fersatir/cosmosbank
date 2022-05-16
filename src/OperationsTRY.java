@@ -1,6 +1,9 @@
 package src;
 
-import static Projects.P14_BankaProjesi.Menus.*;
+
+import static src.Menus.currentCustomer;
+import static src.Menus.*;
+
 
 public class OperationsTRY implements Operations{
 
@@ -76,14 +79,6 @@ public class OperationsTRY implements Operations{
             creditsTransaction();
         }
     }
-
-
-
-
-
-
-
-
 
 
     @Override
