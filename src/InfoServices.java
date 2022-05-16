@@ -30,7 +30,7 @@ public class InfoServices {
     }
 
     public static void exit() {
-    transactionSummary("Exit Success","1001");
+   transactionSummary("Exit Success","1001");
         String date = "Time";
         String action = "Action";
         String amount = "Amount";
