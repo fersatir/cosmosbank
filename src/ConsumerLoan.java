@@ -15,6 +15,7 @@ public class ConsumerLoan implements Credits {
             System.out.println("aaaa");
             System.out.println("bbbb");
             System.out.println("cccc");
+            System.out.println("dddd");
             System.out.println("You are not suitable for Consumer Loan credit since " +
                     "you dont have enough monthly income for the Consumer Loan prerequisite. Your " +
                     "monthly income is: " + currentCustomer.getMonthlyInCome() + " TRY");
