@@ -1,0 +1,47 @@
+
+Banka Projesi:
+
+interface
+
+1-Müşteri işlemeri Class
+    a-hesaplar
+        i-Tl hesabı
+        ii-Döviz hesabı
+    b-müşteri kayıt
+
+
+2-İşlemler Class
+    a-bakiye Sorgulama
+    b-para çekmek
+    c-para yatırma
+    d-para gönderme
+        i-yurtiçi
+        ii-yurt dışı
+    e-kredi işlemleri
+        i-konut
+        ii-araç
+        iii-ihtiyaç
+        iv-kredi ödeme
+
+    g-döviz işlemleri
+        i-döviz alım
+        ii-döviz satım
+        iii-döviz gönderme
+
+3-Hesap özeti class
+
+abdullah: login, register, kredi işlemleri
+
+samet: check balance, withdraw ve deposit işlemlerini
+
+fatih: döviz işlemleri
+fatih:işlem özeti(yapılan işlemlerin özeti kaydedilir.)//Loglama amaçlı işlem yapmak için kullanılacaktır.
+
+
+betul:update customer işlemeleri,  default customer oluşturma,
+
+yasin: hesap özeti işlemleri (map için gerekli bilgileri:müsteri id key,  values: yapılan işlem, değişiklik, tarih, saat)
+
+asım: pojo class oluşturma,
+
+

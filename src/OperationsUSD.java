@@ -1,7 +1,8 @@
 package src;
 
 
-import static src.CustomerServices.transactionSummary;
+
+import static src.InfoServices.transactionSummary;
 import static src.Menus.*;
 
 public class OperationsUSD implements Operations {
