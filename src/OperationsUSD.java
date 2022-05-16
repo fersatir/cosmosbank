@@ -2,6 +2,7 @@ package src;
 
 
 
+import static src.InfoServices.extractAccount;
 import static src.InfoServices.transactionSummary;
 import static src.Menus.*;
 
@@ -17,6 +18,7 @@ public class OperationsUSD implements Operations {
     public void withdrawal() {
         transactionSummary("Sell USD", "1001");
 
+
         System.out.print("Please Enter Sell USD Quantity : ");
         double enterUsd = TryCatch.doubleGirisi();// Satmak istediği usd miktari kullanıcıdan isteniyor.
         double quantityTry = enterUsd * USD;// static final olan USD güncel kur bilgisi ile satmak istenilen USD çarpma yapılıyor ve kaç TL olduğu hesap ediliyor.
@@ -26,6 +28,8 @@ public class OperationsUSD implements Operations {
             customersMap.get(loginId).setBalanceUSD(customersMap.get(loginId).getBalanceUSD() - enterUsd);//usd hesabına yeni miktar set ediliyor.
             customersMap.get(loginId).setBalaceTRY(customersMap.get(loginId).getBalaceTRY()+quantityTry);
             System.out.println("Tebrikler "+enterUsd+" $ ile, "+ quantityTry+ " TL aldınız.");
+
+            extractAccount("Sell USD",enterUsd,"1001");
         }else {
             System.out.println(" Bakiyeniz yeterli değil tekrar denemek için 1'e\nMenu'ye dönmek için 2'ye basınız.  ");
             if (TryCatch.intGirisi() == 1) {
@@ -48,6 +52,7 @@ public class OperationsUSD implements Operations {
             customersMap.get(loginId).setBalaceTRY(customersMap.get(loginId).getBalaceTRY() - quantityTry);//usd alabilmek için yeterli olan try hesabına yeni bakiye set ediliyor.
             customersMap.get(loginId).setBalanceUSD(enterUsd);// usd hesabına para eklendi.
             System.out.println("Tebrikler "+quantityTry+" TL ile, "+ enterUsd+ " $ aldınız.");
+            extractAccount("Buy USD",enterUsd,"1001");
         }else {
             System.out.print(enterUsd + " $ almak için gerekli TL miktarı: " + quantityTry);
             System.out.println(" Bakiyeniz yeterli değil tekrar denemek için 1'e\nMenu'ye dönmek için 2'ye basınız.  ");
@@ -73,6 +78,7 @@ public class OperationsUSD implements Operations {
         if (customersMap.get(loginId).getBalanceUSD() >= enterUsd) { // usd hesabındaki miktar transfer için girilen miktardan büyük mü kontrol yapılıyor.
             customersMap.get(loginId).setBalanceUSD(customersMap.get(loginId).getBalanceUSD() - enterUsd);//usd hesabına yeni miktar set ediliyor.
             System.out.println("Tebrikler "+iban+" nolu hesaba, "+ enterUsd+ " $ transfer ettiniz.");
+            extractAccount("USD Transfer",enterUsd,"1001");
         }else {
             System.out.println(" Bakiyeniz yeterli değil tekrar denemek için 1'e\nMenu'ye dönmek için 2'ye basınız.  ");
             if (TryCatch.intGirisi() == 1) {
