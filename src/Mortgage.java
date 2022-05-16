@@ -23,6 +23,7 @@ public class Mortgage implements Credits {
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY()+20000);
                     System.out.println("Success! 20.000 TRY Mortgage Credit has been transferred to your account. Your curren account balance is "+ currentCustomer.getBalaceTRY());
                     currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit()+20000*2.9);// ödenmemiş kredi borçlarına eklendi
+
                     break;
                 case 2:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY()+35000);
