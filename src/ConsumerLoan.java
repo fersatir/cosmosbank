@@ -13,7 +13,7 @@ public class ConsumerLoan implements Credits {
                 "3- 12.000 TRY Consumer Loan with monthly 0.7% interest rate");
         if (currentCustomer.getMonthlyInCome() < 3000) {
             System.out.println("aaaa");
-            System.out.println("bbbb")
+            System.out.println("bbbb");
             System.out.println("You are not suitable for Consumer Loan credit since " +
                     "you dont have enough monthly income for the Consumer Loan prerequisite. Your " +
                     "monthly income is: " + currentCustomer.getMonthlyInCome() + " TRY");
