@@ -12,6 +12,8 @@ public class AutoLoan implements Credits {
 
 
     public void test2(){}
+    
+    public void test3(){}
 
     @Override
     public void kredi() {
