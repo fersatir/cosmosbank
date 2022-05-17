@@ -9,14 +9,14 @@ import static src.Menus.*;
 public class OperationsUSD implements Operations {
     @Override
     public void balanceInquiry() {
-        transactionSummary("USD Balance Inquiry", "1001");
+        transactionSummary("USD Balance Inquiry", loginId);
         System.out.println("USD($) ACCOUNT BALANCE: ======> " + customersMap.get(loginId).getBalanceUSD() + " $, " );
 
     }
 
     @Override
     public void withdrawal() {
-        transactionSummary("Sell USD", "1001");
+        transactionSummary("Sell USD", loginId);
 
 
         System.out.print("Please Enter Sell USD Quantity : ");
@@ -29,7 +29,7 @@ public class OperationsUSD implements Operations {
             customersMap.get(loginId).setBalaceTRY(customersMap.get(loginId).getBalaceTRY()+quantityTry);
             System.out.println("Tebrikler "+enterUsd+" $ ile, "+ quantityTry+ " TL aldınız.");
 
-            extractAccount("Sell USD",enterUsd,"1001");
+            extractAccount("Sell USD",enterUsd,loginId);
         }else {
             System.out.println(" Bakiyeniz yeterli değil tekrar denemek için 1'e\nMenu'ye dönmek için 2'ye basınız.  ");
             if (TryCatch.intGirisi() == 1) {
@@ -42,7 +42,7 @@ public class OperationsUSD implements Operations {
 
     @Override
     public void deposit() {
-        transactionSummary("Buy USD", "1001");
+        transactionSummary("Buy USD", loginId);
 
         System.out.print("Please Enter Buy USD Quantity : ");
         double enterUsd = TryCatch.doubleGirisi();// almak istediği usd miktari kullanıcıdan isteniyor.
@@ -70,7 +70,7 @@ public class OperationsUSD implements Operations {
 
     @Override
     public void moneyTransfer() {
-        transactionSummary("USD Transfer", "1001");
+        transactionSummary("USD Transfer", loginId);
         System.out.print("Please Enter Transfer USD Quantity : ");
         double enterUsd = TryCatch.doubleGirisi();// transfer etmek istenilen miktar giriliyor.
         System.out.print("Please Enter Iban : ");
@@ -79,7 +79,7 @@ public class OperationsUSD implements Operations {
         if (customersMap.get(loginId).getBalanceUSD() >= enterUsd) { // usd hesabındaki miktar transfer için girilen miktardan büyük mü kontrol yapılıyor.
             customersMap.get(loginId).setBalanceUSD(customersMap.get(loginId).getBalanceUSD() - enterUsd);//usd hesabına yeni miktar set ediliyor.
             System.out.println("Tebrikler "+iban+" nolu hesaba, "+ enterUsd+ " $ transfer ettiniz.");
-            extractAccount("USD Transfer",enterUsd,"1001");
+            extractAccount("USD Transfer",enterUsd,loginId);
         }else {
             System.out.println(" Bakiyeniz yeterli değil tekrar denemek için 1'e\nMenu'ye dönmek için 2'ye basınız.  ");
             if (TryCatch.intGirisi() == 1) {
