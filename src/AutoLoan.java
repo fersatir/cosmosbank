@@ -41,4 +41,8 @@ public void testMethod(){
             }
         }
     }
+
+    public void testMethodNew(){
+
+    }
 }
