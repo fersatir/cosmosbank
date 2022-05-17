@@ -10,7 +10,7 @@ public class OperationsUSD implements Operations {
     @Override
     public void balanceInquiry() {
         transactionSummary("USD Balance Inquiry", loginId);
-        System.out.println("USD($) ACCOUNT BALANCE: ======> " + customersMap.get(loginId).getBalanceUSD() + " $, " );
+        System.out.println(G+"USD($) ACCOUNT BALANCE: ======> " + customersMap.get(loginId).getBalanceUSD() + " $, " +B);
 
     }
 

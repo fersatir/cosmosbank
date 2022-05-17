@@ -7,8 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static src.Menus.customersMap;
-import static src.Menus.loginId;
+import static src.Menus.*;
 
 
 public class InfoServices {
@@ -66,7 +65,7 @@ public class InfoServices {
 
 
         System.out.println("=====================================================================");
-        System.out.println(customersMap.get(loginId).getName().toUpperCase()+" "+customersMap.get(loginId).getSurname().toUpperCase()+"\nLOG SUMMARY_______________________________"); // fatih--> bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
+        System.out.println(G +customersMap.get(loginId).getName().toUpperCase()+" "+customersMap.get(loginId).getSurname().toUpperCase()+"\nLOG SUMMARY_______________________________"); // fatih--> bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
         System.out.printf("%40s", date3);
         System.out.println();
         System.out.printf("\n%-7s %-35s %-14s", islem,  tarih,  process);
@@ -74,7 +73,7 @@ public class InfoServices {
         transactionSummaryPrint(processSummary);
         System.out.println("\n----------------------------------------");
         System.out.println("HAVE A GOOD DAY - WE WISH YOU AGAIN");
-        System.out.println("=====================================================================");
+        System.out.println("====================================================================="+B);
 
     }
 
