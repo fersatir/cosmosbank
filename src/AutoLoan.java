@@ -7,6 +7,7 @@ public class AutoLoan implements Credits {
 
     public void testMethod(){
         System.out.println("test method fatih");
+
     }
     @Override
     public void kredi() {
