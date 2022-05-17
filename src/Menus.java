@@ -116,7 +116,7 @@ public class Menus extends OperationsTRY {   //Ana menu
     private static void login() {
 
         System.out.println("Please enter your ID number: ");
-        String loginId = scanner.nextLine();
+        loginId = scanner.nextLine();
 
         if (customersMap.containsKey(loginId)) {
 
