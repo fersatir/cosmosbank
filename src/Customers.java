@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Customers {
     Scanner scanner = new Scanner(System.in);
 
-
+int number=1000;
     private String name;
     private String surname;
     private String idNumber;
@@ -15,8 +15,30 @@ public class Customers {
     private boolean debit;//construtr'da değiştirdim
     private String telephone;
     private int monthlyInCome;//constructor'da değiştirdim
-    private double previousDebit;//previous debiti belli bir miktarın üstüne olan müşteriler kara listeye alınabilir. kara listede olan müşteriler credi başvursuna
+    private double previousDebit;
+    private String email;//Update işlemleri için ekledim
+    private String address;//Update işlemleri için ekledim//previous debiti belli bir miktarın üstüne olan müşteriler kara listeye alınabilir. kara listede olan müşteriler credi başvursuna
                                 // direkt ret yerler ve hesaplarındaki tüm para birimleri, o borcu kapatmak için otomatik olarak banka tarafından harcanır(FİKİR)
+
+    public void setDebit(boolean debit) {
+        this.debit = debit;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public Customers() {
     }
@@ -32,6 +54,19 @@ public class Customers {
         this.telephone = telephone;
         this.monthlyInCome=monthlyInCome;
 
+    }
+    public Customers(String name, String surname,  String password, double balaceTRY, double balanceUSD, boolean debit, String telephone, int monthlyInCome, String email,String address) {
+        this.name = name;
+        this.surname = surname;
+        this.idNumber = "" + Menus.mapKeyGenerator();
+        this.password = password;
+        this.balaceTRY = balaceTRY;
+        this.balanceUSD = balanceUSD;
+        this.debit = debit;
+        setTelephone(telephone);
+        this.monthlyInCome=monthlyInCome;
+        this.email=email;
+        this.address=address;
     }
 
     public String getName() {
@@ -139,8 +174,12 @@ public class Customers {
     }
 
     public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
+        if(telephone.length()!=11){
+            System.out.println("Phone number must be 11 digits");
+            setTelephone(telephone);}
+        else{
+            this.telephone = telephone;
+        }}
 
     public int getMonthlyInCome() {
         return monthlyInCome;
