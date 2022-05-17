@@ -23,6 +23,8 @@ public class AutoLoan implements Credits {
 
     public void test8(){}
 
+    public void test9(){}
+
 
     @Override
     public void kredi() {
