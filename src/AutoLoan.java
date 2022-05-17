@@ -4,7 +4,11 @@ package src;
 import static src.Menus.currentCustomer;
 
 public class AutoLoan implements Credits {
-public void testMethod(){}
+
+    public void test1(){}
+
+    public void testMethod(){}
+
     @Override
     public void kredi() {
         System.out.println("Auto Loan prerequisite is;\nYour monthly income must be " +
