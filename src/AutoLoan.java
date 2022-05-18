@@ -4,6 +4,9 @@ package src;
 import static src.Menus.currentCustomer;
 
 public class AutoLoan implements Credits {
+    public void testMethod(){
+
+    }
 
     @Override
     public void kredi() {
