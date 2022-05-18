@@ -8,6 +8,10 @@ public class AutoLoan implements Credits {
 
     }
 
+    public void abdullahMethod(){
+
+    }
+
     @Override
     public void kredi() {
         System.out.println("Auto Loan prerequisite is;\nYour monthly income must be " +
