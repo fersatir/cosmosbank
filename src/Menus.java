@@ -33,6 +33,7 @@ public class Menus extends OperationsTRY {   //Ana menu
 
     static String loginId;//fatih login olan müşterinin id nurasını heryerden ulaşabilmek için oluşturuldu.
     static OperationsUSD opusd = new OperationsUSD();
+    static OperationsTRY optry = new OperationsTRY();
    // static Customers currentCustomer; // hangi müşteri işlem yapıyor onu takip etmek için variable
 
     static Map<String, Customers> customersMap = new HashMap<>();//customerID string olduğu için, map'in key'lerini String olarak yazdım
@@ -179,16 +180,18 @@ public class Menus extends OperationsTRY {   //Ana menu
         System.out.print("Please make your selection: ");
         switch (TryCatch.intGirisi()) {
             case 1:
-                checkBalance();
+                optry.balanceInquiry();
                 mainMenu();
                 break;
             case 2:
-                withDraw();
+                optry.withdrawal();
                 mainMenu();
                 break;
             case 3:
+                optry.deposit();
                 break;
-            case 4:updateCustomer();
+            case 4:
+                updateCustomer();
                 break;
             case 5:
                 selectForeignCurrency();

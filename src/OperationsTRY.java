@@ -1,6 +1,7 @@
 package src;
 
 
+import static src.InfoServices.transactionSummary;
 import static src.Menus.currentCustomer;
 import static src.Menus.*;
 
@@ -83,12 +84,14 @@ public class OperationsTRY implements Operations{
 
     @Override
     public void balanceInquiry() {
+        System.out.println(G+"TL ACCOUNT BALANCE: ======> " + customersMap.get(loginId).getBalaceTRY() + " ₺, " +B);
 
+        transactionSummary("TRY Balance Inquiry", loginId);
     }
 
     @Override
     public void withdrawal() {
-
+        transactionSummary("Withdraw Money", loginId);
     }
 
     @Override
