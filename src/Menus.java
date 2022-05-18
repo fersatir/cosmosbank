@@ -90,8 +90,8 @@ public class Menus extends OperationsTRY {   //Ana menu
         customer1.setName(scanner.nextLine());
         System.out.print("Surname: ");
         customer1.setSurname(scanner.nextLine());
-        System.out.print("ID Number: ");
-        customer1.setIdNumber(scanner.nextLine());
+        //System.out.print("ID Number: ");
+        //customer1.setIdNumber(scanner.nextLine());
         System.out.print("Password: ");// 1 büyük,1küçük harf,1 rakam kontrolü eklenecek
         customer1.setPassword(scanner.nextLine());
         System.out.print("Previously used credit? Y/N ");//pojoClass'taki setDebit methodunu sadece Y/N girecek şekilde değiştirdim

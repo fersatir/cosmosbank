@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Customers {
     Scanner scanner = new Scanner(System.in);
 
-int number=1000;
+
     private String name;
     private String surname;
-    private String idNumber;
+    private String idNumber ="" + Menus.mapKeyGenerator();
     private String password;
     private double balaceTRY;//hesap açılışında 0 olmalı zaten?
     private double balanceUSD;//hesap açılışında 0 olmalı zaten?
@@ -43,10 +43,9 @@ int number=1000;
     public Customers() {
     }
 
-    public Customers(String name, String surname, String idNumber, String password, double balaceTRY, double balanceUSD, String debit, String telephone, int monthlyInCome) {
+    public Customers(String name, String surname, String password, double balaceTRY, double balanceUSD, String debit, String telephone, int monthlyInCome) {
         this.name = name;
         this.surname = surname;
-        this.idNumber = idNumber;
         this.password = password;
         this.balaceTRY = balaceTRY;
         this.balanceUSD = balanceUSD;
@@ -58,7 +57,6 @@ int number=1000;
     public Customers(String name, String surname,  String password, double balaceTRY, double balanceUSD, boolean debit, String telephone, int monthlyInCome, String email,String address) {
         this.name = name;
         this.surname = surname;
-        this.idNumber = "" + Menus.mapKeyGenerator();
         this.password = password;
         this.balaceTRY = balaceTRY;
         this.balanceUSD = balanceUSD;
@@ -89,9 +87,6 @@ int number=1000;
         return idNumber;
     }
 
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber;
-    }
 
     public String getPassword() {
         return password;
