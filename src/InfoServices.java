@@ -18,7 +18,7 @@ public class InfoServices {
     static int num = 1;
 
 
-    public static void extractAccount(String action, double amount, String id) { // Yasin --> Hesap Ekstresi metodu her para giriş çıkış işlemlerinde kullanılmalı.
+    public static void extractAccount(String action, double amount, String id) {  // Yasin --> Hesap Ekstresi metodu her para giriş çıkış işlemlerinde kullanılmalı.
 
         ExtractOfAccount obj = new ExtractOfAccount();
         obj.setDate(LocalDate.now());
