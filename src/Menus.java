@@ -307,7 +307,7 @@ public class Menus extends OperationsTRY {   //Ana menu
                 System.out.println(G+"UPDATED PROFILE");
                 profil();
                 while (true) {
-                    scanner.nextLine();
+                 //   scanner.nextLine();
                     System.out.println(B+"DO YOU WANT TO CONTINUE? 1) YES 2) MAIN MENU");
                     selection=scanner.nextInt();
                     if (selection == 1) {

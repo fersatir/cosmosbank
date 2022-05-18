@@ -2,6 +2,9 @@ package src;
 
 import java.util.Scanner;
 
+import static src.Menus.B;
+import static src.Menus.currentCustomer;
+
 public class Customers {
     Scanner scanner = new Scanner(System.in);
 
@@ -174,12 +177,12 @@ int number=1000;
     }
 
     public void setTelephone(String telephone) {
-        if(telephone.length()!=11){
+        while (telephone.length()!=11) {
             System.out.println("Phone number must be 11 digits");
-            setTelephone(telephone);}
-        else{
-            this.telephone = telephone;
-        }}
+            System.out.println(B + "NEW PHONE NUMBER");
+            telephone=scanner.nextLine();
+        }            this.telephone = telephone;
+        }
 
     public int getMonthlyInCome() {
         return monthlyInCome;
