@@ -7,10 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import static src.Menus.*;
+
 
 public class InfoServices {
-    static int numSummary = 1001; //fatih log kaydı alırken işlem sırasını 1001'den başlatmak için kullanıldı.
-    public static Map<Integer, InfoVariables> processSummary = new HashMap<>();//fatih log kayıtlarının tutulduğu map
+    static int numSummary = 1; //fatih --> log kaydı alırken işlem sırasını 1001'den başlatmak için kullanıldı.
+    public static Map<Integer, InfoVariables> processSummary = new HashMap<>();//fatih -->log kayıtlarının tutulduğu map
 
     static Map<Integer, ExtractOfAccount> extAcc = new HashMap<>(); // Yasin --> Hesap Ekstresi Map
     static int num = 1;
@@ -30,7 +32,7 @@ public class InfoServices {
     }
 
     public static void exit() {
-
+   transactionSummary("Exit Success",loginId);
         String date = "Time";
         String action = "Action";
         String amount = "Amount";
@@ -54,12 +56,15 @@ public class InfoServices {
         System.out.println("\n----------------------------------------");
 
         extList(extAcc);
-        System.out.println("\n\n\n\n\n----------------------------------------");
+        System.out.println("\n\n----------------------------------------");
         System.out.println("HAVE A GOOD DAY - WE WISH YOU AGAIN");
         // End --> Hesap Ekstresi Print Başlık Kısmı <-- // by Yasin
 
 
-        System.out.println("\nCOSMOS BANK \nTRANSECTION SUMMARY______________________"); // bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
+
+
+        System.out.println("=====================================================================");
+        System.out.println(G +customersMap.get(loginId).getName().toUpperCase()+" "+customersMap.get(loginId).getSurname().toUpperCase()+"\nLOG SUMMARY_______________________________"); // fatih--> bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
         System.out.printf("%40s", date3);
         System.out.println();
         System.out.printf("\n%-7s %-35s %-14s", islem,  tarih,  process);
@@ -67,7 +72,7 @@ public class InfoServices {
         transactionSummaryPrint(processSummary);
         System.out.println("\n----------------------------------------");
         System.out.println("HAVE A GOOD DAY - WE WISH YOU AGAIN");
-        System.out.println("=====================================================================");
+        System.out.println("====================================================================="+B);
 
     }
     // Start --> Hesap Ekstresi Print içerik kısmı <-- // by Yasin
@@ -82,7 +87,7 @@ public class InfoServices {
     }
     // End --> Hesap Ekstresi Print içerik kısmı <-- // by Yasin
 
-    public static void transactionSummary(String processName, String customerId) {// log alma işlemi yapan method, yapılan işlemin açıklaması ve müşteri id girilecek.
+    public static void transactionSummary(String processName, String customerId) {//fatih--> log alma işlemi yapan method, yapılan işlemin açıklaması ve müşteri id girilecek.
         InfoVariables summary = new InfoVariables();
         summary.setDate();
         summary.setTime();
@@ -94,7 +99,7 @@ public class InfoServices {
 
     }
 
-    public static void transactionSummaryPrint(Map<Integer, InfoVariables> processSummary) {// log kayıtlarını yazdırma methodu
+    public static void transactionSummaryPrint(Map<Integer, InfoVariables> processSummary) {//fatih--> log kayıtlarını yazdırma methodu
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMM yyyy");
         DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("k:mm:ss");
         Set<Map.Entry<Integer, InfoVariables>> sumary = processSummary.entrySet();
