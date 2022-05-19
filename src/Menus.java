@@ -32,6 +32,9 @@ public class Menus extends OperationsTRY {   //Ana menu
 
 
     static String loginId;//fatih login olan müşterinin id nurasını heryerden ulaşabilmek için oluşturuldu.
+                          // (abdullah) static loginID'yi müşteriyi takip etmek için oluşturduysak, müşteri takip için
+                          // bir variable'ımız "currentCustomer" ismiyle zaten satır25'te vardı. login() methodu içinde bunu belirlyiyorduk
+
     static OperationsUSD opusd = new OperationsUSD();
     static OperationsTRY optry = new OperationsTRY();
    // static Customers currentCustomer; // hangi müşteri işlem yapıyor onu takip etmek için variable
