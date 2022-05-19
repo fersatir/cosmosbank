@@ -20,12 +20,12 @@ public class OperationsUSD implements Operations {
 
         String secretCardNumber = customerCardNumber.substring(0, customerCardNumber.length() - 4).replaceAll("\\d", "*");
 
-        System.out.println("There is a balance of " + currentCustomer.getBalanceUSD() + "USD" + " in your USD account number "
+        System.out.println("There is a balance of " + currentCustomer.getBalanceUSD() + " $" + " in your USD account number "
                 + secretCardNumber + customerCardNumber.
                 substring(customerCardNumber.length() - 4) + "");
 
         TryCatch.threadSleep(2000);
-        mainMenu();
+        //mainMenu();
     }
 
     @Override
@@ -41,11 +41,12 @@ public class OperationsUSD implements Operations {
         if (customersMap.get(loginId).getBalanceUSD() >= enterUsd) { // usd hesabındaki miktar satmak için girilen miktardan büyük mü kontrol yapılıyor.
             customersMap.get(loginId).setBalanceUSD(customersMap.get(loginId).getBalanceUSD() - enterUsd);//usd hesabına yeni miktar set ediliyor.
             customersMap.get(loginId).setBalaceTRY(customersMap.get(loginId).getBalaceTRY()+quantityTry);
-            System.out.println("Tebrikler "+enterUsd+" $ ile, "+ quantityTry+ " TL aldınız.");
+            System.out.println("Sell: "+ enterUsd+ " $");
+            System.out.println("There is a balance of " + currentCustomer.getBalanceUSD() + "$");
 
             extractAccount("Sell USD",enterUsd,loginId);
         }else {
-            System.out.println(" Bakiyeniz yeterli değil tekrar denemek için 1'e\nMenu'ye dönmek için 2'ye basınız.  ");
+            System.out.println("Your balance is not enough \npress 1 to re-enter \npress 2 to return to the main menu");
             if (TryCatch.intGirisi() == 1) {
                 withdrawal();
             } else {
@@ -64,13 +65,13 @@ public class OperationsUSD implements Operations {
 
         if (customersMap.get(loginId).getBalaceTRY() >= quantityTry) { // try hesabındaki miktar usd alabilmek için yeterli ise kontrolü yapılıyor
             customersMap.get(loginId).setBalaceTRY(customersMap.get(loginId).getBalaceTRY() - quantityTry);//usd alabilmek için yeterli olan try hesabına yeni bakiye set ediliyor.
-            customersMap.get(loginId).setBalanceUSD(enterUsd);// usd hesabına para eklendi.
-            System.out.println("Tebrikler "+quantityTry+" TL ile, "+ enterUsd+ " $ aldınız.");
+            customersMap.get(loginId).setBalanceUSD(customersMap.get(loginId).getBalanceUSD()+enterUsd);// usd hesabına para eklendi.
+            System.out.println("Buy: "+ enterUsd+ " $");
+            System.out.println("There is a balance of " + currentCustomer.getBalanceUSD() + "$");
 
             extractAccount("Buy USD",enterUsd,"1001");
         }else {
-            System.out.print(enterUsd + " $ almak için gerekli TL miktarı: " + quantityTry);
-            System.out.println(" Bakiyeniz yeterli değil tekrar denemek için 1'e\nMenu'ye dönmek için 2'ye basınız.  ");
+            System.out.println("Your balance is not enough \npress 1 to re-enter \npress 2 to return to the main menu");
             if (TryCatch.intGirisi() == 1) {
                 deposit();
 
