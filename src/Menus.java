@@ -66,7 +66,7 @@ public class Menus extends OperationsTRY {   //Ana menu
     }
     static void defaultCustomers() {
         Customers obj = new Customers();
-        Customers cstmr1 = new Customers("Elif", "Uzun", "ABc123_z", 34.000, 10000, false, "53721245678", 12000, "elifuzun21@gmail.com", "Ankara");
+        Customers cstmr1 = new Customers("Elif", "Uzun", "ABc123_z", 34000, 10000, false, "53721245678", 12000, "elifuzun21@gmail.com", "Ankara");
         Customers cstmr2 = new Customers("Melih", "Öztürk", "ABc123_y", 5.000, 0, false, "50568686868", 7000, "melih2002@hotmail.com", "İstanbul");
         Customers cstmr3 = new Customers("Beyza", "Bilir", "ABc123_v", 65.000, 1500, true, "53156712344", 35000, "bilir27byz@gmail.com", "");
         Customers cstmr4 = new Customers("Mert", "Candan", "ABc123_u", 120.000, 15000, false, "53321229435", 27000, "", "Muğla");
