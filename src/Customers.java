@@ -2,8 +2,7 @@ package src;
 
 import java.util.Scanner;
 
-import static src.Menus.B;
-import static src.Menus.currentCustomer;
+import static src.Menus.*;
 
 public class Customers {
     Scanner scanner = new Scanner(System.in);
@@ -11,7 +10,7 @@ public class Customers {
 
     private String name;
     private String surname;
-    private String idNumber ="" + Menus.mapKeyGenerator();
+    private String idNumber ="" + mapKeyGenerator();
     private String password;
     private double balaceTRY;//hesap açılışında 0 olmalı zaten?
     private double balanceUSD;//hesap açılışında 0 olmalı zaten?
@@ -19,6 +18,7 @@ public class Customers {
     private String telephone;
     private int monthlyInCome;//constructor'da değiştirdim
     private double previousDebit;
+    private String cardNumber = Menus.cardNumberGenerator();
     private String email;//Update işlemleri için ekledim
     private String address;//Update işlemleri için ekledim//previous debiti belli bir miktarın üstüne olan müşteriler kara listeye alınabilir. kara listede olan müşteriler credi başvursuna
                                 // direkt ret yerler ve hesaplarındaki tüm para birimleri, o borcu kapatmak için otomatik olarak banka tarafından harcanır(FİKİR)
@@ -33,6 +33,10 @@ public class Customers {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
     }
 
     public String getAddress() {
