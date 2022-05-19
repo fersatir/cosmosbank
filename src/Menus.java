@@ -24,23 +24,18 @@ public class Menus extends OperationsTRY {   //Ana menu
     static int cardNumber = 2744;
 
     public static int mapKeyGenerator() {//id üretmek için kullanılan method
-
         return customerKey++;
-
     }
 
     public static String cardNumberGenerator() {
         return "4209 0000 0239" + " " + (cardNumber++);
     }
 
-
-    static String loginId;//fatih login olan müşterinin id nurasını heryerden ulaşabilmek için oluşturuldu.
     static OperationsUSD opusd = new OperationsUSD();
     static OperationsTRY optry = new OperationsTRY();
    // static Customers currentCustomer; // hangi müşteri işlem yapıyor onu takip etmek için variable
 
     static Map<String, Customers> customersMap = new TreeMap<>();//customerID string olduğu için, map'in key'lerini String olarak yazdım
-
 
     public static void registerMenu() {
 
@@ -56,7 +51,6 @@ public class Menus extends OperationsTRY {   //Ana menu
             count++;
         }
         System.out.println(customersMap);
-
 
         if (TryCatch.intGirisi() == 1) {
             login();
@@ -107,21 +101,18 @@ public class Menus extends OperationsTRY {   //Ana menu
 
         currentCustomer = customer1; // we now know that this particular customer is using our app
 
-
         customersMap.put(customer1.getIdNumber(), customer1);
         System.out.println("New customer has been registered to our system. You are being redirected to the main menu...");
         transactionSummary("Customer Registered","1001");
         TryCatch.threadSleep(1000);
         System.out.println(customersMap);
         mainMenu();
-
-
     }
 
     private static void login() {
 
         System.out.println("Please enter your ID number: ");
-        loginId = scanner.nextLine();
+        String loginId = scanner.nextLine();
 
         if (customersMap.containsKey(loginId)) {
 
@@ -156,12 +147,8 @@ public class Menus extends OperationsTRY {   //Ana menu
                 break;
             } else {
                 System.out.println("Invalid selection, please pres 1, 2 or 0 to proceed: ");
-
             }
         }
-
-
-
     }
 
     public static void mainMenu() { // Kullanıcı login/register olduktan sonraki ekran
@@ -258,9 +245,7 @@ public class Menus extends OperationsTRY {   //Ana menu
 
     }
 
-
     private static void updateCustomer() {
-
 
         System.out.println(G+"<<SELECT THE FIELD TO EDIT>>\n 1) PHONE NUMBER\n 2) E-MAIL\n 3) ADDRESS\n 4) PASSWORD\n ");
         //selection = scanner.nextInt();
@@ -324,7 +309,6 @@ public class Menus extends OperationsTRY {   //Ana menu
                 passwordUpdate();
 
         }
-
 
     }
 
@@ -390,7 +374,6 @@ public class Menus extends OperationsTRY {   //Ana menu
         }
 
     }
-
 
     static void profil() {
         System.out.println("ID\t  NAME\t\t\tSURNAME\t\t  TELEPHONE\t\t  MONTLY INCOME\t\tE-MAIL\t\t\t\t\t  ADDRESS \n=======================================================================================================");

@@ -32,7 +32,7 @@ public class InfoServices {
     }
 
     public static void exit() {
-   transactionSummary("Exit Success",loginId);
+   transactionSummary("Exit Success",currentCustomer.getIdNumber());
         String date = "Time";
         String action = "Action";
         String amount = "Amount";
@@ -64,7 +64,7 @@ public class InfoServices {
 
 
         System.out.println("=====================================================================");
-        System.out.println(G +customersMap.get(loginId).getName().toUpperCase()+" "+customersMap.get(loginId).getSurname().toUpperCase()+"\nLOG SUMMARY_______________________________"); // fatih--> bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
+        System.out.println(G +customersMap.get(currentCustomer.getIdNumber()).getName().toUpperCase()+" "+customersMap.get(currentCustomer.getIdNumber()).getSurname().toUpperCase()+"\nLOG SUMMARY_______________________________"); // fatih--> bu kısım ve aşağıdaki kod bloğu fatih tarafından yapıldı. exit ile birlikte log kayıtlarını göstermek için
         System.out.printf("%40s", date3);
         System.out.println();
         System.out.printf("\n%-7s %-35s %-14s", islem,  tarih,  process);

@@ -15,7 +15,7 @@ public class OperationsUSD implements Operations {
 
     @Override
     public void balanceInquiry() {
-        transactionSummary("USD Balance Inquiry", loginId);
+        transactionSummary("USD Balance Inquiry", currentCustomer.getIdNumber());
         String customerCardNumber = currentCustomer.getCardNumber();
 
         String secretCardNumber = customerCardNumber.substring(0, customerCardNumber.length() - 4).replaceAll("\\d", "*");
@@ -30,7 +30,7 @@ public class OperationsUSD implements Operations {
 
     @Override
     public void withdrawal() {
-        transactionSummary("Sell USD", loginId);
+        transactionSummary("Sell USD", currentCustomer.getIdNumber());
 
 
         System.out.print("Please Enter Sell USD Quantity : ");
@@ -38,13 +38,13 @@ public class OperationsUSD implements Operations {
         double quantityTry = enterUsd * USD;// static final olan USD güncel kur bilgisi ile satmak istenilen USD çarpma yapılıyor ve kaç TL olduğu hesap ediliyor.
 
 
-        if (customersMap.get(loginId).getBalanceUSD() >= enterUsd) { // usd hesabındaki miktar satmak için girilen miktardan büyük mü kontrol yapılıyor.
-            customersMap.get(loginId).setBalanceUSD(customersMap.get(loginId).getBalanceUSD() - enterUsd);//usd hesabına yeni miktar set ediliyor.
-            customersMap.get(loginId).setBalaceTRY(customersMap.get(loginId).getBalaceTRY()+quantityTry);
+        if (customersMap.get(currentCustomer.getIdNumber()).getBalanceUSD() >= enterUsd) { // usd hesabındaki miktar satmak için girilen miktardan büyük mü kontrol yapılıyor.
+            customersMap.get(currentCustomer.getIdNumber()).setBalanceUSD(customersMap.get(currentCustomer.getIdNumber()).getBalanceUSD() - enterUsd);//usd hesabına yeni miktar set ediliyor.
+            customersMap.get(currentCustomer.getIdNumber()).setBalaceTRY(customersMap.get(currentCustomer.getIdNumber()).getBalaceTRY()+quantityTry);
             System.out.println("Sell: "+ enterUsd+ " $");
             System.out.println("There is a balance of " + currentCustomer.getBalanceUSD() + "$");
 
-            extractAccount("Sell USD",enterUsd,loginId);
+            extractAccount("Sell USD",enterUsd,currentCustomer.getIdNumber());
         }else {
             System.out.println("Your balance is not enough \npress 1 to re-enter \npress 2 to return to the main menu");
             if (TryCatch.intGirisi() == 1) {
@@ -57,19 +57,19 @@ public class OperationsUSD implements Operations {
 
     @Override
     public void deposit() {
-        transactionSummary("Buy USD", loginId);
+        transactionSummary("Buy USD", currentCustomer.getIdNumber());
 
         System.out.print("Please Enter Buy USD Quantity : ");
         double enterUsd = TryCatch.doubleGirisi();// almak istediği usd miktari kullanıcıdan isteniyor.
         double quantityTry = enterUsd * USD;// static final olan USD güncel kur bilgisi ile almak istenilen USD çarpma yapılıyor kaç TL ihtiyaç var hesaplama yapılıyor
 
-        if (customersMap.get(loginId).getBalaceTRY() >= quantityTry) { // try hesabındaki miktar usd alabilmek için yeterli ise kontrolü yapılıyor
-            customersMap.get(loginId).setBalaceTRY(customersMap.get(loginId).getBalaceTRY() - quantityTry);//usd alabilmek için yeterli olan try hesabına yeni bakiye set ediliyor.
-            customersMap.get(loginId).setBalanceUSD(customersMap.get(loginId).getBalanceUSD()+enterUsd);// usd hesabına para eklendi.
+        if (customersMap.get(currentCustomer.getIdNumber()).getBalaceTRY() >= quantityTry) { // try hesabındaki miktar usd alabilmek için yeterli ise kontrolü yapılıyor
+            customersMap.get(currentCustomer.getIdNumber()).setBalaceTRY(customersMap.get(currentCustomer.getIdNumber()).getBalaceTRY() - quantityTry);//usd alabilmek için yeterli olan try hesabına yeni bakiye set ediliyor.
+            customersMap.get(currentCustomer.getIdNumber()).setBalanceUSD(customersMap.get(currentCustomer.getIdNumber()).getBalanceUSD()+enterUsd);// usd hesabına para eklendi.
             System.out.println("Buy: "+ enterUsd+ " $");
             System.out.println("There is a balance of " + currentCustomer.getBalanceUSD() + "$");
 
-            extractAccount("Buy USD",enterUsd,"1001");
+            extractAccount("Buy USD",enterUsd,currentCustomer.getIdNumber());
         }else {
             System.out.println("Your balance is not enough \npress 1 to re-enter \npress 2 to return to the main menu");
             if (TryCatch.intGirisi() == 1) {
@@ -86,7 +86,7 @@ public class OperationsUSD implements Operations {
 
     @Override
     public void moneyTransfer() {
-        transactionSummary("USD Transfer", loginId);
+        transactionSummary("Money Transfer USD", currentCustomer.getIdNumber());
 
         String accountSelection = "";
         Customers transferCustomer = null;
@@ -119,7 +119,8 @@ public class OperationsUSD implements Operations {
                     transferCustomer.setBalanceUSD(transferCustomer.getBalanceUSD() + sendAmount);
                     System.out.println("transaction completed successfully");
                     System.out.println("your new balance : " + currentCustomer.getBalanceUSD());
-                    mainMenu();
+                    extractAccount("Money Transfer USD",sendAmount,currentCustomer.getIdNumber());
+                    //mainMenu();
                 } else {
                     System.out.println("Invalid amount. Redirecting Money Transfer main menu");
                     moneyTransfer();
@@ -138,7 +139,8 @@ public class OperationsUSD implements Operations {
                 currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() - sendAmount - 5);
                 System.out.println("transaction completed successfully");
                 System.out.println("your new balance : " + currentCustomer.getBalaceTRY());
-                mainMenu();
+                extractAccount("Money Transfer USD",sendAmount,currentCustomer.getIdNumber());
+                //mainMenu();
             } else {
                 System.out.println("Invalid amount. Redirecting Money Transfer main menu");
                 moneyTransfer();

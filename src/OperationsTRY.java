@@ -97,7 +97,7 @@ public class OperationsTRY implements Operations{
                 + secretCardNumber + customerCardNumber.
                 substring(customerCardNumber.length() - 4) + "");
 
-        transactionSummary("TRY Balance Inquiry", loginId);
+        transactionSummary("TRY Balance Inquiry", currentCustomer.getIdNumber());
 
         TryCatch.threadSleep(2000);
         mainMenu();
@@ -127,7 +127,7 @@ public class OperationsTRY implements Operations{
             System.out.println("your new balance : " + currentCustomer.getBalaceTRY());
         }
 
-        transactionSummary("Withdraw Money", loginId);
+        transactionSummary("Withdraw Money", currentCustomer.getIdNumber());
     }
 
     @Override
