@@ -3,11 +3,9 @@ package src;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-
-import static src.CustomerServices.*;
 import static src.InfoServices.exit;
 import static src.InfoServices.transactionSummary;
 
@@ -21,13 +19,18 @@ public class Menus extends OperationsTRY {   //Ana menu
     static Scanner scanner = new Scanner(System.in);
     static int count;//default Customerı bir kez üretmek için kullanılan değişken
     static int selection;
-    static int customerKey = 1000;//id number için tanımlanan değişken
+    static int customerKey = 999;//id number için tanımlanan değişken
     static Customers currentCustomer;
+    static int cardNumber = 2744;
 
     public static int mapKeyGenerator() {//id üretmek için kullanılan method
 
         return customerKey++;
 
+    }
+
+    public static String cardNumberGenerator() {
+        return "4209 0000 0239" + " " + (cardNumber++);
     }
 
 
@@ -36,7 +39,7 @@ public class Menus extends OperationsTRY {   //Ana menu
     static OperationsTRY optry = new OperationsTRY();
    // static Customers currentCustomer; // hangi müşteri işlem yapıyor onu takip etmek için variable
 
-    static Map<String, Customers> customersMap = new HashMap<>();//customerID string olduğu için, map'in key'lerini String olarak yazdım
+    static Map<String, Customers> customersMap = new TreeMap<>();//customerID string olduğu için, map'in key'lerini String olarak yazdım
 
 
     public static void registerMenu() {
@@ -52,6 +55,7 @@ public class Menus extends OperationsTRY {   //Ana menu
             defaultCustomers();
             count++;
         }
+        System.out.println(customersMap);
 
 
         if (TryCatch.intGirisi() == 1) {
@@ -174,7 +178,7 @@ public class Menus extends OperationsTRY {   //Ana menu
                 + "   | 5-FOREIGN CURRENCY|            |6- LOAN TRANSACTION|   \n"
                 + "   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯   \n"
                 + "   _____________________            _____________________   \n"
-                + "   | 7-EXIT            |            | 8- -----          |   \n"
+                + "   | 7-EXIT            |            | 8- MONEY TRANSFER |   \n"
                 + "   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯  " + B);
 
         System.out.print("Please make your selection: ");
@@ -201,9 +205,9 @@ public class Menus extends OperationsTRY {   //Ana menu
                 break;
             case 7:
                 exit();
-                mainMenu();
                 break;
             case 8:
+                optry.moneyTransfer();
                 break;
         }
 

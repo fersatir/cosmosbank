@@ -2,16 +2,30 @@ package src;
 
 
 
+import java.util.Map;
+import java.util.Scanner;
+
 import static src.InfoServices.extractAccount;
 import static src.InfoServices.transactionSummary;
 import static src.Menus.*;
 
 public class OperationsUSD implements Operations {
+
+    Scanner scan = new Scanner(System.in);
+
     @Override
     public void balanceInquiry() {
         transactionSummary("USD Balance Inquiry", loginId);
-        System.out.println(G+"USD($) ACCOUNT BALANCE: ======> " + customersMap.get(loginId).getBalanceUSD() + " $, " +B);
+        String customerCardNumber = currentCustomer.getCardNumber();
 
+        String secretCardNumber = customerCardNumber.substring(0, customerCardNumber.length() - 4).replaceAll("\\d", "*");
+
+        System.out.println("There is a balance of " + currentCustomer.getBalanceUSD() + "USD" + " in your USD account number "
+                + secretCardNumber + customerCardNumber.
+                substring(customerCardNumber.length() - 4) + "");
+
+        TryCatch.threadSleep(2000);
+        mainMenu();
     }
 
     @Override
@@ -59,6 +73,7 @@ public class OperationsUSD implements Operations {
             System.out.println(" Bakiyeniz yeterli değil tekrar denemek için 1'e\nMenu'ye dönmek için 2'ye basınız.  ");
             if (TryCatch.intGirisi() == 1) {
                 deposit();
+
             } else {
                 selectForeignCurrency();
             }
@@ -71,22 +86,65 @@ public class OperationsUSD implements Operations {
     @Override
     public void moneyTransfer() {
         transactionSummary("USD Transfer", loginId);
-        System.out.print("Please Enter Transfer USD Quantity : ");
-        double enterUsd = TryCatch.doubleGirisi();// transfer etmek istenilen miktar giriliyor.
-        System.out.print("Please Enter Iban : ");
-        int iban = TryCatch.intGirisi();
 
-        if (customersMap.get(loginId).getBalanceUSD() >= enterUsd) { // usd hesabındaki miktar transfer için girilen miktardan büyük mü kontrol yapılıyor.
-            customersMap.get(loginId).setBalanceUSD(customersMap.get(loginId).getBalanceUSD() - enterUsd);//usd hesabına yeni miktar set ediliyor.
-            System.out.println("Tebrikler "+iban+" nolu hesaba, "+ enterUsd+ " $ transfer ettiniz.");
-            extractAccount("USD Transfer",enterUsd,loginId);
-        }else {
-            System.out.println(" Bakiyeniz yeterli değil tekrar denemek için 1'e\nMenu'ye dönmek için 2'ye basınız.  ");
-            if (TryCatch.intGirisi() == 1) {
-                moneyTransfer();
-            } else {
-                selectForeignCurrency();
+        String accountSelection = "";
+        Customers transferCustomer = null;
+        boolean account = false;
+        int sendAmount = 0;
+        int customerSelection = 0;
+
+        System.out.println(" If the person you want to send money to is a Cosmos Bank customer, \nclick 1 to send money quickly," +
+                "\nor click 2 if another bank customer. \nor click 3 to back to main menu");
+        customerSelection = TryCatch.intGirisi();
+
+
+        if (customerSelection == 1) {
+            System.out.println("Please enter the account number you want to send:");
+            accountSelection = scan.nextLine();
+
+            for(Map.Entry<String, Customers> entry : customersMap.entrySet()){
+                if (entry.getValue().getCardNumber().equals(accountSelection)){
+                    transferCustomer = entry.getValue();
+                    account = true;
+                }
             }
+
+            if (account) {
+                System.out.println("Enter the amount you want to send");
+                sendAmount = TryCatch.intGirisi();
+
+                if (sendAmount >= 0 && currentCustomer.getBalanceUSD() >= sendAmount) {
+                    currentCustomer.setBalanceUSD(currentCustomer.getBalanceUSD() - sendAmount - 3);
+                    transferCustomer.setBalanceUSD(transferCustomer.getBalanceUSD() + sendAmount);
+                    System.out.println("transaction completed successfully");
+                    System.out.println("your new balance : " + currentCustomer.getBalanceUSD());
+                    mainMenu();
+                } else {
+                    System.out.println("Invalid amount. Redirecting Money Transfer main menu");
+                    moneyTransfer();
+                }
+            } else {
+                System.out.println("Invalid Account Number. Redirecting Money Transfer main menu");
+                moneyTransfer();
+            }
+
+        } else if (customerSelection == 2) {
+            System.out.println("Please enter the account number you want to send:");
+            accountSelection = scan.nextLine();
+            System.out.println("Enter the amount you want to send");
+            sendAmount = TryCatch.intGirisi();
+            if (sendAmount >= 0 || currentCustomer.getBalaceTRY() >= sendAmount) {
+                currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() - sendAmount - 5);
+                System.out.println("transaction completed successfully");
+                System.out.println("your new balance : " + currentCustomer.getBalaceTRY());
+                mainMenu();
+            } else {
+                System.out.println("Invalid amount. Redirecting Money Transfer main menu");
+                moneyTransfer();
+            }
+
+        } else if (customerSelection == 3) {
+            mainMenu();
         }
 
     }
