@@ -206,7 +206,7 @@ public class OperationsTRY implements Operations{
             accountSelection = scan.nextLine();
             System.out.println("Enter the amount you want to send");
             sendAmount = TryCatch.intGirisi();
-            if (sendAmount >= 0 || currentCustomer.getBalaceTRY() >= sendAmount) {
+            if (sendAmount >= 0 && currentCustomer.getBalaceTRY() >= sendAmount) {
                 currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() - sendAmount - 2);
                 System.out.println("transaction completed successfully");
                 System.out.println("your new balance : " + currentCustomer.getBalaceTRY());
