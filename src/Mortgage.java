@@ -22,21 +22,21 @@ public class Mortgage implements Credits {
                 case 1:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY()+20000);
                     System.out.println("Success! 20.000 TRY Mortgage Credit has been transferred to your account. Your curren account balance is "+ currentCustomer.getBalaceTRY());
-                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit()+20000*2.9);// ödenmemiş kredi borçlarına eklendi
+                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit()+20000*3.9);// ödenmemiş kredi borçlarına eklendi
                     InfoServices.extractAccount("Kredi çekildi",20000,Menus.currentCustomer.getIdNumber());
                     Menus.mainMenu();
                     break;
                 case 2:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY()+35000);
                     System.out.println("Success! 35.000 TRY Mortgage Credit has been transferred to your account. Your curren account balance is "+ currentCustomer.getBalaceTRY());
-                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit()+35000*2.1);// ödenmemiş kredi borçlarına eklendi
+                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit()+35000*3.1);// ödenmemiş kredi borçlarına eklendi
                     InfoServices.extractAccount("Kredi çekildi",35000,Menus.currentCustomer.getIdNumber());
                     Menus.mainMenu();
                     break;
                 case 3:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY()+50000);
                     System.out.println("Success! 50.000 TRY Mortgage Credit has been transferred to your account. Your curren account balance is "+ currentCustomer.getBalaceTRY());
-                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit()+50000*1.9);// ödenmemiş kredi borçlarına eklendi
+                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit()+50000*2.9);// ödenmemiş kredi borçlarına eklendi
                     InfoServices.extractAccount("Kredi çekildi",50000,Menus.currentCustomer.getIdNumber());
                     Menus.mainMenu();
                     break;
