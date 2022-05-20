@@ -23,17 +23,17 @@ public class ConsumerLoan implements Credits {
                 case 1:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() + 7000);
                     System.out.println("Success! 7.000 TRY Consumer Loan Credit has been transferred to your account. Your curren account balance is " + currentCustomer.getBalaceTRY());
-                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 7000 * 1.1);// ödenmemiş kredi borçlarına eklendi
+                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 7000 * 2.1);// ödenmemiş kredi borçlarına eklendi
                     break;
                 case 2:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() + 10000);
                     System.out.println("Success! 10.000 TRY Consumer Loan Credit has been transferred to your account. Your curren account balance is " + currentCustomer.getBalaceTRY());
-                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 10000 * 0.9);// ödenmemiş kredi borçlarına eklendi
+                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 10000 * 1.9);// ödenmemiş kredi borçlarına eklendi
                     break;
                 case 3:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() + 12000);
                     System.out.println("Success! 12.000 TRY Consumer Loan Credit has been transferred to your account. Your curren account balance is " + currentCustomer.getBalaceTRY());
-                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 12000 * 0.7);// ödenmemiş kredi borçlarına eklendi
+                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 12000 * 1.7);// ödenmemiş kredi borçlarına eklendi
                     break;
                 default:
                     System.out.println("Invalid Consumer Loan package. Please try again:");

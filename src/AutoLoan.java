@@ -26,17 +26,17 @@ public class AutoLoan implements Credits {
                 case 1:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() + 15000);
                     System.out.println("Success! 15.000 TRY Auto Loan Credit has been transferred to your account. Your curren account balance is " + currentCustomer.getBalaceTRY());
-                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 15000 * 1.8);// ödenmemiş kredi borçlarına eklendi
+                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 15000 * 2.8);// ödenmemiş kredi borçlarına eklendi
                     break;
                 case 2:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() + 20000);
                     System.out.println("Success! 20.000 TRY Auto Loan Credit has been transferred to your account. Your curren account balance is " + currentCustomer.getBalaceTRY());
-                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 35000 * 1.5);// ödenmemiş kredi borçlarına eklendi
+                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 35000 * 2.5);// ödenmemiş kredi borçlarına eklendi
                     break;
                 case 3:
                     currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() + 25000);
                     System.out.println("Success! 25.000 TRY Auto Loan Credit has been transferred to your account. Your curren account balance is " + currentCustomer.getBalaceTRY());
-                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 50000 * 1.2);// ödenmemiş kredi borçlarına eklendi
+                    currentCustomer.setPreviousDebit(currentCustomer.getPreviousDebit() + 50000 * 2.2);// ödenmemiş kredi borçlarına eklendi
                     break;
                 default:
                     System.out.println("Invalid Auto Loan package. Please try again:");
