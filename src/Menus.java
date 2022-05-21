@@ -55,8 +55,6 @@ public class Menus extends OperationsTRY {   //Ana menu
         }
     }
 
-
-
     public static void mainMenu() { // Kullanıcı login/register olduktan sonraki ekran
 
         System.out.println("========================== CUSTOMER OPERATION =======================\r\n"

@@ -1,6 +1,6 @@
 package src;
 
-import static src.CustomerServices.defaultCustomers;
+
 import static src.Menus.registerMenu;
 
 public class Runner {
