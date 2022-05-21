@@ -1,7 +1,5 @@
 package src;
 
-
-
 import java.util.Map;
 import java.util.Scanner;
 
@@ -32,11 +30,9 @@ public class OperationsUSD implements Operations {
     public void withdrawal() {
         transactionSummary("Sell USD", currentCustomer.getIdNumber());
 
-
         System.out.print("Please Enter Sell USD Quantity : ");
         double enterUsd = TryCatch.doubleGirisi();// Satmak istediği usd miktari kullanıcıdan isteniyor.
         double quantityTry = enterUsd * USD;// static final olan USD güncel kur bilgisi ile satmak istenilen USD çarpma yapılıyor ve kaç TL olduğu hesap ediliyor.
-
 
         if (customersMap.get(currentCustomer.getIdNumber()).getBalanceUSD() >= enterUsd) { // usd hesabındaki miktar satmak için girilen miktardan büyük mü kontrol yapılıyor.
             customersMap.get(currentCustomer.getIdNumber()).setBalanceUSD(customersMap.get(currentCustomer.getIdNumber()).getBalanceUSD() - enterUsd);//usd hesabına yeni miktar set ediliyor.
@@ -80,8 +76,6 @@ public class OperationsUSD implements Operations {
             }
         }
 
-
-
     }
 
     @Override
@@ -97,7 +91,6 @@ public class OperationsUSD implements Operations {
         System.out.println(" If the person you want to send money to is a Cosmos Bank customer, \nclick 1 to send money quickly," +
                 "\nor click 2 if another bank customer. \nor click 3 to back to main menu");
         customerSelection = TryCatch.intGirisi();
-
 
         if (customerSelection == 1) {
             System.out.println("Please enter the account number you want to send:");

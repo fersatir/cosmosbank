@@ -4,21 +4,16 @@ package src;
 import java.util.Map;
 import java.util.Scanner;
 
+import static src.InfoServices.extractAccount;
 import static src.InfoServices.transactionSummary;
 import static src.Menus.currentCustomer;
 import static src.Menus.*;
-
 
 public class OperationsTRY implements Operations{
 
     Scanner scan = new Scanner(System.in);
 
-    public static void payments(){
-
-    }
-
-    public static void creditsTransaction(){//Sadece TL için kredi, bunu diğer döviz
-                                           // cinsleri için de ayırabiliriz.
+    public static void creditsTransaction(){//Sadece TL için kredi, bunu diğer döviz cinsleri için de ayırabiliriz.
         System.out.println("========================== CREDIT TRANSACTIONS =======================\r\n"
 
                 + "   ____________________             ____________________    \n"
@@ -55,7 +50,6 @@ public class OperationsTRY implements Operations{
 
     }//creditsTransaction();
 
-
     public static void creditRatingCheck() {//checks if the customer, who applied for new credit, have previously unpaid loans
         if(currentCustomer.isDebit()){
             System.out.println("You are not suitable to use credit since it seems you currently have unpaid loan: \n" +
@@ -85,7 +79,6 @@ public class OperationsTRY implements Operations{
         }
     }
 
-
     @Override
     public void balanceInquiry() {
 
@@ -106,7 +99,7 @@ public class OperationsTRY implements Operations{
 
     @Override
     public void withdrawal() {
-
+        transactionSummary("Withdraw Money", currentCustomer.getIdNumber());
         System.out.println("Please enter the amount you want to withdraw");
         int amountOfWithdraw = scan.nextInt();
         int selection = 0;
@@ -123,16 +116,15 @@ public class OperationsTRY implements Operations{
             }
         } else {
             currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() - amountOfWithdraw);
-            System.out.println("transaction completed successfully");
-            System.out.println("your new balance : " + currentCustomer.getBalaceTRY());
+            System.out.println("Transaction Completed Successfully");
+            System.out.println("Your New Balance : " + currentCustomer.getBalaceTRY());
+            extractAccount("Money Withdraw",amountOfWithdraw,currentCustomer.getIdNumber());
         }
-
-        transactionSummary("Withdraw Money", currentCustomer.getIdNumber());
     }
 
     @Override
     public void deposit() {
-
+        transactionSummary("Deposit Money", currentCustomer.getIdNumber());
         System.out.println("Please enter the amount you want to deposit");
         int amountOfDeposit = TryCatch.intGirisi();
         int selection = 0;
@@ -151,15 +143,15 @@ public class OperationsTRY implements Operations{
             currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() + amountOfDeposit);
             System.out.println("transaction completed successfully");
             System.out.println("your new balance : " + currentCustomer.getBalaceTRY());
+            extractAccount("Money Deposit",amountOfDeposit,currentCustomer.getIdNumber());
             mainMenu();
         }
     }
 
-
-
     @Override
     public void moneyTransfer() {
 
+        transactionSummary("Money Transfer", currentCustomer.getIdNumber());
         String accountSelection = null;
         Customers transferCustomer = null;
         boolean account = false;
@@ -191,6 +183,7 @@ public class OperationsTRY implements Operations{
                     transferCustomer.setBalaceTRY(transferCustomer.getBalaceTRY() + sendAmount);
                     System.out.println("transaction completed successfully");
                     System.out.println("your new balance : " + currentCustomer.getBalaceTRY());
+                    extractAccount("Send Money Quickly",sendAmount,currentCustomer.getIdNumber());
                     mainMenu();
                 } else {
                     System.out.println("Invalid amount. Redirecting Money Transfer main menu");
@@ -210,6 +203,7 @@ public class OperationsTRY implements Operations{
                 currentCustomer.setBalaceTRY(currentCustomer.getBalaceTRY() - sendAmount - 2);
                 System.out.println("transaction completed successfully");
                 System.out.println("your new balance : " + currentCustomer.getBalaceTRY());
+                extractAccount("Send Money Other Bank",sendAmount,currentCustomer.getIdNumber());
                 mainMenu();
             } else {
                 System.out.println("Invalid amount. Redirecting Money Transfer main menu");
